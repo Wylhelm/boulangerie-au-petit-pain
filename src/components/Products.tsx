@@ -1,10 +1,10 @@
 import './Products.css';
-import imgBaguette from '../assets/baguette.jpg';
-import imgPainCampagne from '../assets/pain-campagne.jpg';
-import imgCroissant from '../assets/croissant.jpg';
-import imgPainChocolat from '../assets/pain-chocolat.jpg';
-import imgBrioche from '../assets/brioche.jpg';
-import imgTarte from '../assets/tarte.jpg';
+import imgBaguette from '../assets/baguette.webp';
+import imgPainCampagne from '../assets/pain-campagne.webp';
+import imgCroissant from '../assets/croissant.webp';
+import imgPainChocolat from '../assets/pain-chocolat.webp';
+import imgBrioche from '../assets/brioche.webp';
+import imgTarte from '../assets/tarte.webp';
 
 interface Product {
   id: string;

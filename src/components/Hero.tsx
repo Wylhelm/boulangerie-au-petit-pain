@@ -1,7 +1,7 @@
 import './Hero.css';
-import imgPainCampagne from '../assets/pain-campagne.jpg';
-import imgCroissant from '../assets/croissant.jpg';
-import imgBaguette from '../assets/baguette.jpg';
+import imgPainCampagne from '../assets/hero-pain-campagne.webp';
+import imgCroissant from '../assets/hero-croissant.webp';
+import imgBaguette from '../assets/hero-baguette.webp';
 
 export default function Hero() {
   return (
