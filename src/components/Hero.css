@@ -106,20 +106,12 @@
 }
 
 .hero__bread-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-cream-dark);
-  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-md);
-  padding: var(--space-md);
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition), transform var(--transition);
+  aspect-ratio: 4 / 3;
 }
 
 .hero__bread-card:hover {
@@ -129,13 +121,32 @@
 
 .hero__bread-card--lg {
   grid-column: 1 / -1;
-  flex-direction: row;
-  justify-content: center;
-  font-size: 1rem;
+  aspect-ratio: 16 / 7;
 }
 
-.hero__bread-emoji {
-  font-size: 2.5rem;
+.hero__bread-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.hero__bread-card:hover .hero__bread-img {
+  transform: scale(1.04);
+}
+
+.hero__bread-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 /* Scroll hint */

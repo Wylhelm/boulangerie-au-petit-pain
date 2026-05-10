@@ -2,7 +2,8 @@ import './Products.css';
 
 interface Product {
   id: string;
-  emoji: string;
+  image: string;
+  imageAlt: string;
   name: string;
   description: string;
   tag?: string;
@@ -11,40 +12,46 @@ interface Product {
 const PRODUCTS: Product[] = [
   {
     id: 'baguette',
-    emoji: '&#127849;',
+    image: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc7c?w=600&h=400&fit=crop&auto=format&q=80',
+    imageAlt: 'Baguettes tradition fraîchement cuites',
     name: 'Baguette Tradition',
     description: 'Notre baguette phare, croustillante dehors et moelleuse dedans. Fabriquée selon les méthodes traditionnelles françaises.',
     tag: 'Incontournable',
   },
   {
     id: 'pain-campagne',
-    emoji: '&#127838;',
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop&auto=format&q=80',
+    imageAlt: 'Pain de campagne au levain naturel',
     name: 'Pain de Campagne',
     description: 'Un pain rustique au levain naturel, à la croûte dorée et à la mie aérée avec des notes légèrement acidulées.',
     tag: 'Coup de coeur',
   },
   {
     id: 'croissant',
-    emoji: '&#127850;',
+    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop&auto=format&q=80',
+    imageAlt: 'Croissants au beurre AOP dorés',
     name: 'Croissant au Beurre',
     description: 'Feuilletage délicat, beurre AOP de qualité, dorure parfaite. Le croissant comme vous l\'aimez, chaque matin.',
     tag: 'Best-seller',
   },
   {
     id: 'pain-chocolat',
-    emoji: '&#127851;',
+    image: 'https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&h=400&fit=crop&auto=format&q=80',
+    imageAlt: 'Pains au chocolat feuilletés',
     name: 'Pain au Chocolat',
     description: 'Deux rangées de chocolat noir fondu enveloppées dans une pâte feuilletée beurrée à souhait.',
   },
   {
     id: 'brioche',
-    emoji: '&#129392;',
+    image: 'https://images.unsplash.com/photo-1568254183919-78a4f43a2877?w=600&h=400&fit=crop&auto=format&q=80',
+    imageAlt: 'Brioche maison filante et dorée',
     name: 'Brioche Maison',
     description: 'Filante, dorée, parfumée à la fleur d\'oranger. Notre brioche est le fruit de 24h de pousse lente pour un résultat incomparable.',
   },
   {
     id: 'tarte',
-    emoji: '&#127856;',
+    image: 'https://images.unsplash.com/photo-1488477181375-a73ba7093dc2?w=600&h=400&fit=crop&auto=format&q=80',
+    imageAlt: 'Tarte aux fruits de saison',
     name: 'Tartes & Viennoiseries',
     description: 'Une sélection de tartes du jour aux fruits de saison et de viennoiseries variées pour ravir toutes les envies.',
     tag: 'Saison',
@@ -57,11 +64,16 @@ function ProductCard({ product }: { product: Product }) {
       {product.tag && (
         <span className="product-card__tag">{product.tag}</span>
       )}
-      <div
-        className="product-card__emoji"
-        aria-hidden="true"
-        dangerouslySetInnerHTML={{ __html: product.emoji }}
-      />
+      <div className="product-card__image-wrap">
+        <img
+          src={product.image}
+          alt={product.imageAlt}
+          className="product-card__image"
+          loading="lazy"
+          width={600}
+          height={400}
+        />
+      </div>
       <h3 className="product-card__name">{product.name}</h3>
       <p className="product-card__desc">{product.description}</p>
     </article>

@@ -34,16 +34,31 @@ export default function Hero() {
           </div>
           <div className="hero__bread-grid">
             <div className="hero__bread-card hero__bread-card--lg">
-              <span className="hero__bread-emoji">&#127838;</span>
-              <span>Pain de campagne</span>
+              <img
+                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=420&fit=crop&auto=format&q=80"
+                alt="Pain de campagne au levain"
+                className="hero__bread-img"
+                loading="eager"
+              />
+              <span className="hero__bread-label">Pain de campagne</span>
             </div>
             <div className="hero__bread-card">
-              <span className="hero__bread-emoji">&#127850;</span>
-              <span>Croissant</span>
+              <img
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=320&fit=crop&auto=format&q=80"
+                alt="Croissant au beurre"
+                className="hero__bread-img"
+                loading="eager"
+              />
+              <span className="hero__bread-label">Croissant</span>
             </div>
             <div className="hero__bread-card">
-              <span className="hero__bread-emoji">&#127849;</span>
-              <span>Baguette</span>
+              <img
+                src="https://images.unsplash.com/photo-1549931319-a545dcf3bc7c?w=400&h=320&fit=crop&auto=format&q=80"
+                alt="Baguette tradition"
+                className="hero__bread-img"
+                loading="eager"
+              />
+              <span className="hero__bread-label">Baguette</span>
             </div>
           </div>
         </div>
