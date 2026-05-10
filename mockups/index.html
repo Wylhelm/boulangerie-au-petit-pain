@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Au Pain Doré — Boulangerie Artisanale</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    /* ===== PAGE-SPECIFIC: ACCUEIL ===== */
+
+    /* --- Hero --- */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - var(--nav-height));
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-20) var(--space-16) var(--space-20) var(--space-12);
+      z-index: 2;
+    }
+
+    .hero__eyebrow {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-5);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .hero__eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 2px;
+      background: var(--color-gold-500);
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-700);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero__title em {
+      font-style: italic;
+      color: var(--color-brown-500);
+    }
+
+    .hero__description {
+      font-size: var(--text-lg);
+      color: var(--color-brown-300);
+      line-height: var(--leading-relaxed);
+      max-width: 42ch;
+      margin-bottom: var(--space-10);
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .hero__badges {
+      display: flex;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-gold-100);
+    }
+
+    .hero__badge {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .hero__badge-value {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-500);
+    }
+
+    .hero__badge-label {
+      font-size: var(--text-xs);
+      color: var(--color-brown-300);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+
+    .hero__image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__image-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        160deg,
+        var(--color-gold-100) 0%,
+        var(--color-brown-100) 40%,
+        var(--color-brown-300) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      color: var(--color-brown-500);
+    }
+
+    .hero__image-icon {
+      font-size: 5rem;
+      line-height: 1;
+    }
+
+    .hero__image-caption {
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-brown-300);
+    }
+
+    /* Decorative wheat motif overlay */
+    .hero__image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(212,164,76,0.04) 40px,
+        rgba(212,164,76,0.04) 42px
+      );
+      pointer-events: none;
+    }
+
+    /* Scroll indicator */
+    .hero__scroll {
+      position: absolute;
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--color-brown-300);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+    }
+
+    .hero__scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-gold-500), transparent);
+      animation: scrollPulse 1.8s var(--easing-standard) infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* --- Feature strip --- */
+    .features {
+      background: var(--color-brown-500);
+      padding-block: var(--space-6);
+    }
+
+    .features__list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-1);
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      color: var(--color-gold-100);
+    }
+
+    .feature__icon { font-size: 1.25rem; }
+
+    .feature__text {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+    }
+
+    /* --- Specialty section --- */
+    .specialty {
+      padding-block: var(--space-24);
+    }
+
+    .specialty__header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+
+    .specialty__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .specialty-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+
+    .specialty-card__image {
+      width: 100%;
+      height: 100%;
+    }
+
+    .specialty-card__image.pains {
+      background: linear-gradient(160deg, #C8A87A 0%, #8B6040 100%);
+    }
+    .specialty-card__image.viennoiseries {
+      background: linear-gradient(160deg, #E8C878 0%, #C07843 100%);
+    }
+    .specialty-card__image.patisseries {
+      background: linear-gradient(160deg, #D4A44C 0%, #6B3A2A 100%);
+    }
+
+    .specialty-card__image-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 5rem;
+      opacity: 0.6;
+    }
+
+    .specialty-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,24,16,0.85) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--space-6);
+      transition: background var(--duration-normal) var(--easing-standard);
+    }
+
+    .specialty-card:hover .specialty-card__overlay {
+      background: linear-gradient(to top, rgba(44,24,16,0.92) 0%, rgba(44,24,16,0.2) 55%);
+    }
+
+    .specialty-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-white);
+      margin-bottom: var(--space-2);
+    }
+
+    .specialty-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-gold-100);
+      line-height: var(--leading-relaxed);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--duration-normal) var(--easing-enter),
+                  transform var(--duration-normal) var(--easing-enter);
+      margin-bottom: var(--space-4);
+    }
+
+    .specialty-card:hover .specialty-card__desc {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .specialty-card__cta {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-gold-300);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    /* --- Story section --- */
+    .story {
+      padding-block: var(--space-24);
+      background: var(--color-gold-100);
+    }
+
+    .story__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    .story__image {
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .story__image-main {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--color-brown-100) 0%, var(--color-brown-300) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+    }
+
+    /* Accent card floating bottom-right */
+    .story__image-accent {
+      position: absolute;
+      bottom: -var(--space-4);
+      right: -var(--space-4);
+      width: 160px;
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .story__accent-label {
+      font-size: var(--text-xs);
+      color: var(--color-brown-300);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+
+    .story__accent-value {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-500);
+    }
+
+    .story__content { padding-block: var(--space-4); }
+
+    .story__quote {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-style: italic;
+      color: var(--color-brown-700);
+      line-height: var(--leading-snug);
+      margin-block: var(--space-6);
+      padding-left: var(--space-6);
+      border-left: 3px solid var(--color-gold-500);
+    }
+
+    .story__text {
+      color: var(--color-brown-700);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-8);
+    }
+
+    /* --- Testimonials --- */
+    .testimonials {
+      padding-block: var(--space-24);
+    }
+
+    .testimonials__header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .testimonial {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-gold-100);
+    }
+
+    .testimonial__stars {
+      color: var(--color-gold-500);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: var(--space-4);
+    }
+
+    .testimonial__text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--text-lg);
+      color: var(--color-brown-700);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-6);
+    }
+
+    .testimonial__author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .testimonial__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--color-gold-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-500);
+      font-size: var(--text-sm);
+      flex-shrink: 0;
+    }
+
+    .testimonial__name {
+      font-weight: var(--weight-semibold);
+      font-size: var(--text-sm);
+      color: var(--color-brown-700);
+    }
+
+    .testimonial__role {
+      font-size: var(--text-xs);
+      color: var(--color-brown-300);
+    }
+
+    /* --- Hours banner --- */
+    .hours-banner {
+      background: var(--color-brown-900);
+      padding-block: var(--space-12);
+      text-align: center;
+    }
+
+    .hours-banner__title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-gold-300);
+      margin-bottom: var(--space-8);
+    }
+
+    .hours-banner__grid {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-12);
+      margin-bottom: var(--space-8);
+    }
+
+    .hours-item {
+      color: var(--color-cream-200);
+    }
+
+    .hours-item__day {
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-1);
+    }
+
+    .hours-item__time {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-medium);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero__image { display: none; }
+      .hero__content { padding: var(--space-16) var(--space-4); }
+      .specialty__grid { grid-template-columns: 1fr; }
+      .story__inner { grid-template-columns: 1fr; }
+      .story__image { display: none; }
+      .testimonials__grid { grid-template-columns: 1fr; }
+      .features__list { grid-template-columns: 1fr 1fr; }
+      .hours-banner__grid { flex-direction: column; gap: var(--space-6); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+          <span class="nav__logo-name">Au Pain Doré</span>
+          <span class="nav__logo-tagline">Boulangerie Artisanale</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link nav__link--active">Accueil</a></li>
+          <li><a href="produits.html" class="nav__link">Produits</a></li>
+          <li><a href="a-propos.html" class="nav__link">À propos</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--gold">Nous trouver</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__content container" style="padding-right:0; max-width:none; margin:0;">
+      <div style="max-width:600px; padding: var(--space-20) var(--space-16) var(--space-20) calc((100vw - 1200px)/2 + var(--space-6))">
+        <p class="hero__eyebrow">Depuis 1987 · Paris, Montmartre</p>
+        <h1 class="hero__title">
+          Le pain fait<br>
+          <em>avec amour,</em><br>
+          chaque matin.
+        </h1>
+        <p class="hero__description">
+          Chaque baguette, chaque croissant, chaque tarte est façonnée à la main dans notre fournil,
+          avec des farines biologiques sélectionnées et un savoir-faire transmis de génération en génération.
+        </p>
+        <div class="hero__actions">
+          <a href="produits.html" class="btn btn--primary">Découvrir nos produits</a>
+          <a href="a-propos.html" class="btn btn--secondary">Notre histoire</a>
+        </div>
+        <div class="hero__badges">
+          <div class="hero__badge">
+            <span class="hero__badge-value">38</span>
+            <span class="hero__badge-label">ans d'expérience</span>
+          </div>
+          <div class="hero__badge">
+            <span class="hero__badge-value">50+</span>
+            <span class="hero__badge-label">recettes maison</span>
+          </div>
+          <div class="hero__badge">
+            <span class="hero__badge-value">100%</span>
+            <span class="hero__badge-label">fait sur place</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__image">
+      <div class="hero__image-inner">
+        <div class="hero__image-icon">🥐</div>
+        <span class="hero__image-caption">Photo — fournil artisanal</span>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span>Défiler</span>
+    </div>
+  </section>
+
+  <!-- ===== FEATURE STRIP ===== -->
+  <div class="features">
+    <div class="container">
+      <div class="features__list">
+        <div class="feature">
+          <span class="feature__icon">🌾</span>
+          <span class="feature__text">Farines biologiques Label Rouge</span>
+        </div>
+        <div class="feature">
+          <span class="feature__icon">⏰</span>
+          <span class="feature__text">Ouverture dès 7h du matin</span>
+        </div>
+        <div class="feature">
+          <span class="feature__icon">🔥</span>
+          <span class="feature__text">Cuisson au four à bois</span>
+        </div>
+        <div class="feature">
+          <span class="feature__icon">🏆</span>
+          <span class="feature__text">Meilleure baguette Paris 2022</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SPECIALTIES ===== -->
+  <section class="specialty">
+    <div class="container">
+      <div class="specialty__header">
+        <p class="section-label">Nos spécialités</p>
+        <h2 class="section-title">Ce qui nous rend uniques</h2>
+        <p class="section-subtitle">
+          Des pains à la fermentation longue, des viennoiseries feuilletées au beurre AOP,
+          et des pâtisseries de saison — trois univers, un seul amour du métier.
+        </p>
+      </div>
+      <div class="specialty__grid">
+        <a href="produits.html" class="specialty-card" style="text-decoration:none">
+          <div class="specialty-card__image pains">
+            <div class="specialty-card__image-icon">🍞</div>
+          </div>
+          <div class="specialty-card__overlay">
+            <h3 class="specialty-card__title">Pains</h3>
+            <p class="specialty-card__desc">Baguettes tradition, pains de campagne, seigle, épeautre — pétris et façonnés chaque nuit.</p>
+            <span class="specialty-card__cta">Explorer →</span>
+          </div>
+        </a>
+        <a href="produits.html" class="specialty-card" style="text-decoration:none">
+          <div class="specialty-card__image viennoiseries">
+            <div class="specialty-card__image-icon">🥐</div>
+          </div>
+          <div class="specialty-card__overlay">
+            <h3 class="specialty-card__title">Viennoiseries</h3>
+            <p class="specialty-card__desc">Croissants, pains au chocolat et kouign-amann feuilletés au beurre de Charentes.</p>
+            <span class="specialty-card__cta">Explorer →</span>
+          </div>
+        </a>
+        <a href="produits.html" class="specialty-card" style="text-decoration:none">
+          <div class="specialty-card__image patisseries">
+            <div class="specialty-card__image-icon">🍰</div>
+          </div>
+          <div class="specialty-card__overlay">
+            <h3 class="specialty-card__title">Pâtisseries</h3>
+            <p class="specialty-card__desc">Tartes, éclairs, millefeuilles et entremets créés chaque semaine selon la saison.</p>
+            <span class="specialty-card__cta">Explorer →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORY TEASER ===== -->
+  <section class="story">
+    <div class="container">
+      <div class="story__inner">
+        <div class="story__image">
+          <div class="story__image-main">👨‍🍳</div>
+          <div class="story__image-accent">
+            <div class="story__accent-label">Maître boulanger</div>
+            <div class="story__accent-value">3ème<br><span style="font-size:var(--text-base); font-family:var(--font-body)">génération</span></div>
+          </div>
+        </div>
+        <div class="story__content">
+          <p class="section-label">Notre histoire</p>
+          <h2 class="section-title">Un savoir-faire transmis depuis 1987</h2>
+          <blockquote class="story__quote">
+            "Le bon pain se fabrique avec peu d'ingrédients, beaucoup de patience, et encore plus d'amour."
+            <footer style="font-size:var(--text-sm); color:var(--color-brown-300); margin-top:var(--space-3); font-style:normal;">— Pierre Dumont, fondateur</footer>
+          </blockquote>
+          <p class="story__text">
+            Fondée par Pierre Dumont au cœur de Montmartre, notre boulangerie a traversé trois décennies
+            sans jamais céder aux sirènes du pain industriel. Aujourd'hui, son petit-fils Thomas continue
+            l'aventure avec la même exigence et la même passion pour les fermentations lentes.
+          </p>
+          <a href="a-propos.html" class="btn btn--primary">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <p class="section-label">Ils nous font confiance</p>
+        <h2 class="section-title">Ce que disent nos clients</h2>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"La meilleure baguette que j'ai mangée depuis des années. J'en viens chaque matin depuis trois ans."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">MR</div>
+            <div>
+              <div class="testimonial__name">Marie R.</div>
+              <div class="testimonial__role">Cliente fidèle depuis 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Les croissants ici sont incomparables — croustillants dehors, fondants dedans, avec ce goût de beurre irremplaçable."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">JL</div>
+            <div>
+              <div class="testimonial__name">Jean-Luc B.</div>
+              <div class="testimonial__role">Client depuis 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"J'ai commandé un gâteau pour l'anniversaire de ma fille — toute la famille était émerveillée. Merci pour ce moment magique."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">SB</div>
+            <div>
+              <div class="testimonial__name">Sophie B.</div>
+              <div class="testimonial__role">Commande spéciale</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOURS BANNER ===== -->
+  <section class="hours-banner">
+    <div class="container">
+      <h2 class="hours-banner__title">Nos horaires d'ouverture</h2>
+      <div class="hours-banner__grid">
+        <div class="hours-item">
+          <div class="hours-item__day">Lundi – Vendredi</div>
+          <div class="hours-item__time">7h00 – 19h30</div>
+        </div>
+        <div class="hours-item">
+          <div class="hours-item__day">Samedi</div>
+          <div class="hours-item__time">7h00 – 19h00</div>
+        </div>
+        <div class="hours-item">
+          <div class="hours-item__day">Dimanche</div>
+          <div class="hours-item__time">7h30 – 13h00</div>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn--gold">Voir l'adresse et accès</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Au Pain Doré</div>
+          <p class="footer__brand-text">
+            Boulangerie artisanale fondée en 1987 au cœur de Montmartre.
+            Farines biologiques, levain naturel, cuisson au four à bois.
+          </p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigation</div>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Accueil</a></li>
+            <li><a href="produits.html" class="footer__link">Produits</a></li>
+            <li><a href="a-propos.html" class="footer__link">À propos</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Nous trouver</div>
+          <ul class="footer__links">
+            <li><span class="footer__link">12 rue Lepic, 75018 Paris</span></li>
+            <li><a href="tel:+33142541234" class="footer__link">+33 1 42 54 12 34</a></li>
+            <li><a href="mailto:contact@aupaindore.fr" class="footer__link">contact@aupaindore.fr</a></li>
+            <li><span class="footer__link">Métro : Abbesses (ligne 12)</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Au Pain Doré · Tous droits réservés</span>
+        <span>Fait avec ♥ à Montmartre</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
