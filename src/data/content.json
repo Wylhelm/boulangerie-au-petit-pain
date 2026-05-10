@@ -1,0 +1,173 @@
+{
+  "bakery": {
+    "name": "Au Pain Doré",
+    "tagline": "Boulangerie artisanale depuis 1978",
+    "email": "bonjour@aupaindore.fr",
+    "phone": "01 42 00 00 00",
+    "address": {
+      "street": "12 Rue du Four à Bois",
+      "city": "Paris",
+      "postalCode": "75011",
+      "country": "France"
+    }
+  },
+
+  "seo": {
+    "home": {
+      "title": "Au Pain Doré – Boulangerie Artisanale à Paris 11e",
+      "description": "Boulangerie artisanale Au Pain Doré à Paris. Pains au levain, croissants au beurre, baguettes tradition et viennoiseries faits maison chaque matin. Ouvert du mardi au dimanche.",
+      "og": {
+        "title": "Au Pain Doré – Boulangerie Artisanale à Paris 11e",
+        "description": "Pains, viennoiseries et pâtisseries artisanales préparés chaque matin avec des ingrédients soigneusement sélectionnés. Venez nous rendre visite au 12 rue du Four à Bois.",
+        "imageAlt": "Devanture de la boulangerie Au Pain Doré, Paris 11e"
+      },
+      "keywords": [
+        "boulangerie artisanale Paris",
+        "boulangerie Paris 11",
+        "pain au levain Paris",
+        "croissant au beurre Paris",
+        "baguette tradition Paris",
+        "viennoiseries artisanales",
+        "boulangerie fait maison"
+      ]
+    },
+    "menu": {
+      "title": "Nos Produits & Spécialités – Au Pain Doré",
+      "description": "Découvrez nos pains, viennoiseries et pâtisseries artisanales : baguette tradition, pain de campagne au levain, croissant au beurre AOP, brioche maison et tartes de saison.",
+      "og": {
+        "title": "Nos Produits & Spécialités – Au Pain Doré",
+        "description": "Baguettes, croissants, pains au levain, brioches et tartes de saison. Tout est préparé chaque jour avec amour dans notre boulangerie artisanale parisienne.",
+        "imageAlt": "Assortiment de pains et viennoiseries artisanaux d'Au Pain Doré"
+      },
+      "keywords": [
+        "baguette tradition artisanale",
+        "pain de campagne levain naturel",
+        "croissant beurre AOP",
+        "brioche maison Paris",
+        "tarte aux fruits saison",
+        "spécialités boulangerie"
+      ]
+    },
+    "about": {
+      "title": "Notre Histoire – Au Pain Doré, Boulangerie Depuis 1978",
+      "description": "Fondée en 1978 par la famille Morel, la boulangerie Au Pain Doré perpétue les traditions de la boulangerie française. Découvrez notre histoire et notre savoir-faire artisanal.",
+      "og": {
+        "title": "Notre Histoire – Au Pain Doré",
+        "description": "Depuis 1978, trois générations de boulangers perpétuent l'art du pain artisanal à Paris. Farines locales, levain maison, cuisson au four à sole : l'héritage Au Pain Doré.",
+        "imageAlt": "Boulanger façonnant une baguette à la main dans la boulangerie Au Pain Doré"
+      },
+      "keywords": [
+        "boulangerie familiale Paris",
+        "histoire boulangerie artisanale",
+        "tradition boulangère française",
+        "pain artisanal depuis 1978",
+        "savoir-faire boulanger"
+      ]
+    },
+    "contact": {
+      "title": "Contact & Horaires – Au Pain Doré, Paris 11e",
+      "description": "Retrouvez la boulangerie Au Pain Doré au 12 rue du Four à Bois, Paris 11e. Ouverte du mardi au dimanche dès 6h30. Contactez-nous par téléphone ou email.",
+      "og": {
+        "title": "Contact & Horaires – Au Pain Doré",
+        "description": "12 rue du Four à Bois, Paris 11e. Ouvert mardi–vendredi 6h30–19h30, samedi 6h–19h, dimanche 7h–13h. Fermé le lundi.",
+        "imageAlt": "Entrée de la boulangerie Au Pain Doré rue du Four à Bois Paris"
+      },
+      "keywords": [
+        "boulangerie Paris 11 adresse",
+        "horaires boulangerie Paris",
+        "boulangerie ouverte dimanche Paris 11",
+        "contact boulangerie artisanale"
+      ]
+    }
+  },
+
+  "hero": {
+    "eyebrow": "Boulangerie artisanale depuis 1978",
+    "headline": "Le pain fait avec passion,",
+    "headlineHighlight": "savouré avec plaisir",
+    "subtitle": "Chaque matin, nous pétrissons, façonnons et cuisons nos pains et viennoiseries à la main, avec des ingrédients soigneusement sélectionnés pour vous offrir le meilleur de l'artisanat boulanger.",
+    "ctaPrimary": "Découvrir nos produits",
+    "ctaSecondary": "Nous trouver"
+  },
+
+  "about": {
+    "eyebrow": "Notre histoire",
+    "title": "Une passion transmise de génération en génération",
+    "body": "En 1978, Marcel Morel ouvre les portes d'Au Pain Doré avec une seule ambition : faire le meilleur pain du quartier. Quarante-cinq ans plus tard, son petit-fils Thomas perpétue cet héritage avec la même rigueur et la même passion. Chaque jour avant l'aube, l'équipe façonne à la main baguettes, pains au levain et viennoiseries dans le respect des gestes ancestraux. Farines Label Rouge moulues sur pierre, levain naturel entretenu depuis trente ans, cuisson au four à sole : rien n'a changé, sauf peut-être le nombre de sourires qui franchissent notre seuil chaque matin."
+  },
+
+  "values": [
+    {
+      "id": "artisanal",
+      "icon": "&#127859;",
+      "title": "Artisanal",
+      "description": "Tout est fabriqué à la main, sans additifs ni conservateurs. Nous façonnons chaque pièce individuellement, du pétrissage à la cuisson, selon les méthodes transmises par nos anciens."
+    },
+    {
+      "id": "local",
+      "icon": "&#127807;",
+      "title": "Local",
+      "description": "Nous nous approvisionnons auprès de meuniers et producteurs franciliens engagés dans une agriculture responsable. Soutenir le territoire, c'est aussi notre façon de faire du bon pain."
+    },
+    {
+      "id": "frais",
+      "icon": "&#127763;",
+      "title": "Frais du jour",
+      "description": "Aucun produit de la veille. Ce qui n'est pas vendu est donné à des associations locales. Vous ne trouverez chez nous que ce qui a été cuit le jour même, pour votre plus grand plaisir."
+    }
+  ],
+
+  "products": [
+    {
+      "id": "baguette",
+      "name": "Baguette Tradition",
+      "description": "Notre baguette phare, croustillante dehors et moelleuse dedans. Fabriquée selon les méthodes traditionnelles françaises.",
+      "tag": "Incontournable"
+    },
+    {
+      "id": "pain-campagne",
+      "name": "Pain de Campagne",
+      "description": "Un pain rustique au levain naturel, à la croûte dorée et à la mie aérée avec des notes légèrement acidulées.",
+      "tag": "Coup de cœur"
+    },
+    {
+      "id": "croissant",
+      "name": "Croissant au Beurre",
+      "description": "Feuilletage délicat, beurre AOP de qualité, dorure parfaite. Le croissant comme vous l'aimez, chaque matin.",
+      "tag": "Best-seller"
+    },
+    {
+      "id": "pain-chocolat",
+      "name": "Pain au Chocolat",
+      "description": "Deux rangées de chocolat noir fondu enveloppées dans une pâte feuilletée beurrée à souhait."
+    },
+    {
+      "id": "brioche",
+      "name": "Brioche Maison",
+      "description": "Filante, dorée, parfumée à la fleur d'oranger. Notre brioche est le fruit de 24h de pousse lente pour un résultat incomparable."
+    },
+    {
+      "id": "tarte",
+      "name": "Tartes & Viennoiseries",
+      "description": "Une sélection de tartes du jour aux fruits de saison et de viennoiseries variées pour ravir toutes les envies.",
+      "tag": "Saison"
+    }
+  ],
+
+  "contact": {
+    "eyebrow": "Venez nous rendre visite",
+    "title": "Contact & Horaires",
+    "intro": "Notre boulangerie vous accueille du mardi au dimanche. N'hésitez pas à passer ou à nous appeler — un croissant chaud vous attend.",
+    "hours": [
+      { "day": "Lundi", "hours": "Fermé", "closed": true },
+      { "day": "Mardi – Vendredi", "hours": "6h30 – 19h30", "closed": false },
+      { "day": "Samedi", "hours": "6h00 – 19h00", "closed": false },
+      { "day": "Dimanche", "hours": "7h00 – 13h00", "closed": false }
+    ]
+  },
+
+  "footer": {
+    "tagline": "Fait avec amour, chaque matin depuis 1978.",
+    "copyright": "© 2024 Au Pain Doré. Tous droits réservés."
+  }
+}
