@@ -193,6 +193,18 @@
     .product-card__badge--new { background: var(--color-gold-500); color: var(--color-brown-900); }
     .product-card__badge--season { background: var(--color-success); }
 
+    .product-card__image--photo {
+      padding: 0;
+      background: none;
+      font-size: 0;
+    }
+    .product-card__image--photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .product-card__body {
       padding: var(--space-4) var(--space-5) var(--space-5);
       display: flex;
@@ -381,7 +393,10 @@
         <div class="product-grid">
 
           <div class="product-card">
-            <div class="product-card__image">🥖<div class="product-card__badge">Incontournable</div></div>
+            <div class="product-card__image product-card__image--photo">
+              <img src="../src/assets/baguette.webp" alt="Baguettes tradition fraîchement cuites" loading="lazy">
+              <div class="product-card__badge">Incontournable</div>
+            </div>
             <div class="product-card__body">
               <div class="product-card__name">Baguette Tradition</div>
               <p class="product-card__desc">Pâte fermentée 18h, farine Label Rouge T65. Mie alvéolée, croûte croustillante.</p>
@@ -393,7 +408,9 @@
           </div>
 
           <div class="product-card">
-            <div class="product-card__image" style="background: linear-gradient(135deg, #D4B896 0%, #9C7A5A 100%)">🍞</div>
+            <div class="product-card__image product-card__image--photo">
+              <img src="../src/assets/pain-campagne.webp" alt="Pain de campagne au levain naturel" loading="lazy">
+            </div>
             <div class="product-card__body">
               <div class="product-card__name">Pain de Campagne</div>
               <p class="product-card__desc">Mélange seigle et blé, levain naturel. Idéal pour les fromages et charcuteries.</p>
@@ -443,7 +460,10 @@
         <div class="product-grid">
 
           <div class="product-card">
-            <div class="product-card__image" style="background: linear-gradient(135deg, #F0D090 0%, #C89040 100%)">🥐<div class="product-card__badge">Signature</div></div>
+            <div class="product-card__image product-card__image--photo">
+              <img src="../src/assets/croissant.webp" alt="Croissants au beurre AOP dorés" loading="lazy">
+              <div class="product-card__badge">Signature</div>
+            </div>
             <div class="product-card__body">
               <div class="product-card__name">Croissant au Beurre</div>
               <p class="product-card__desc">Beurre AOP, 27 couches, dorure à l'œuf. Notre meilleure vente depuis 1987.</p>
@@ -455,7 +475,9 @@
           </div>
 
           <div class="product-card">
-            <div class="product-card__image" style="background: linear-gradient(135deg, #E8C878 0%, #8B5A20 100%)">🍫</div>
+            <div class="product-card__image product-card__image--photo">
+              <img src="../src/assets/pain-chocolat.webp" alt="Pains au chocolat feuilletés" loading="lazy">
+            </div>
             <div class="product-card__body">
               <div class="product-card__name">Pain au Chocolat</div>
               <p class="product-card__desc">Deux barres de chocolat noir Valrhona 70%, pâte feuilletée pur beurre.</p>
@@ -505,7 +527,10 @@
         <div class="product-grid">
 
           <div class="product-card">
-            <div class="product-card__image" style="background: linear-gradient(135deg, #F8E8D0 0%, #D09040 100%)">🍮<div class="product-card__badge product-card__badge--season">Saison</div></div>
+            <div class="product-card__image product-card__image--photo">
+              <img src="../src/assets/tarte.webp" alt="Tarte aux fruits de saison" loading="lazy">
+              <div class="product-card__badge product-card__badge--season">Saison</div>
+            </div>
             <div class="product-card__body">
               <div class="product-card__name">Tarte Tatin</div>
               <p class="product-card__desc">Pommes caramélisées au beurre salé, pâte brisée maison. Servie tiède.</p>

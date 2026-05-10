@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Au Pain Doré · Boulangerie Artisanale</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    /* ===== PAGE-SPECIFIC: CONTACT ===== */
+
+    /* --- Page hero --- */
+    .page-hero {
+      background: linear-gradient(160deg, var(--color-gold-100) 0%, var(--color-cream-200) 100%);
+      padding-block: var(--space-16);
+      text-align: center;
+      border-bottom: 1px solid var(--color-gold-100);
+    }
+
+    .page-hero__breadcrumb {
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-brown-300);
+      margin-bottom: var(--space-4);
+    }
+
+    .page-hero__breadcrumb a {
+      text-decoration: none;
+      color: var(--color-brown-300);
+      transition: color var(--duration-fast) var(--easing-standard);
+    }
+
+    .page-hero__breadcrumb a:hover { color: var(--color-brown-500); }
+
+    .page-hero__title {
+      font-family: var(--font-display);
+      font-size: var(--text-5xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-700);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-4);
+    }
+
+    .page-hero__subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-brown-300);
+      max-width: 48ch;
+      margin-inline: auto;
+    }
+
+    /* --- Main contact layout --- */
+    .contact-section {
+      padding-block: var(--space-20) var(--space-24);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+
+    /* --- Info panel --- */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+
+    .contact-info-block {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-gold-100);
+    }
+
+    .contact-info-block__heading {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-5);
+    }
+
+    .contact-info-block__icon {
+      font-size: 1.25rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+
+    .contact-detail:last-child { margin-bottom: 0; }
+
+    .contact-detail__label {
+      font-size: var(--text-xs);
+      color: var(--color-brown-300);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+
+    .contact-detail__value {
+      font-size: var(--text-base);
+      font-weight: var(--weight-medium);
+      color: var(--color-brown-700);
+    }
+
+    .contact-detail__value a {
+      text-decoration: none;
+      color: var(--color-brown-500);
+      transition: color var(--duration-fast) var(--easing-standard);
+    }
+
+    .contact-detail__value a:hover { color: var(--color-brown-700); }
+
+    /* Hours table */
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid var(--color-cream-200);
+    }
+
+    .hours-table tr:last-child { border-bottom: none; }
+
+    .hours-table td {
+      padding: var(--space-3) 0;
+      font-size: var(--text-sm);
+    }
+
+    .hours-table td:first-child {
+      color: var(--color-brown-300);
+      width: 55%;
+    }
+
+    .hours-table td:last-child {
+      color: var(--color-brown-700);
+      font-weight: var(--weight-medium);
+      text-align: right;
+    }
+
+    .hours-table .today td:first-child {
+      color: var(--color-brown-500);
+      font-weight: var(--weight-semibold);
+    }
+
+    .hours-table .today td:last-child {
+      color: var(--color-brown-500);
+    }
+
+    .open-now {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-success);
+      margin-bottom: var(--space-5);
+    }
+
+    .open-now::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: var(--color-success);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    /* Map placeholder */
+    .map-placeholder {
+      height: 220px;
+      background: linear-gradient(135deg, var(--color-cream-200) 0%, var(--color-gold-100) 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      color: var(--color-brown-300);
+      border: 1px dashed var(--color-gold-300);
+    }
+
+    .map-placeholder__icon { font-size: 2.5rem; }
+
+    .map-placeholder__label {
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+
+    .map-placeholder__address {
+      font-size: var(--text-sm);
+      color: var(--color-brown-500);
+      font-weight: var(--weight-medium);
+    }
+
+    /* --- Contact form --- */
+    .contact-form-panel {
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-gold-100);
+    }
+
+    .contact-form-panel__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-700);
+      margin-bottom: var(--space-2);
+    }
+
+    .contact-form-panel__subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-brown-300);
+      margin-bottom: var(--space-8);
+    }
+
+    /* Subject tabs */
+    .subject-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+
+    .subject-tab {
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      border: 2px solid var(--color-cream-200);
+      background: var(--color-cream-100);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      transition: border-color var(--duration-fast) var(--easing-standard),
+                  background var(--duration-fast) var(--easing-standard);
+      min-height: 64px; /* Fitts: >=44px */
+      justify-content: center;
+    }
+
+    .subject-tab:hover {
+      border-color: var(--color-gold-300);
+      background: var(--color-gold-100);
+    }
+
+    .subject-tab--selected {
+      border-color: var(--color-brown-500);
+      background: var(--color-gold-100);
+    }
+
+    .subject-tab__icon { font-size: 1.25rem; }
+    .subject-tab__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-medium);
+      color: var(--color-brown-500);
+      text-align: center;
+    }
+
+    /* Form fields */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+
+    .form-group:last-child { margin-bottom: 0; }
+
+    .form-label {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-brown-700);
+    }
+
+    .form-label--required::after {
+      content: ' *';
+      color: var(--color-error);
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 12px var(--space-4);
+      border: 2px solid var(--color-cream-200);
+      border-radius: var(--radius-md);
+      background: var(--color-cream-100);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-brown-900);
+      transition: border-color var(--duration-fast) var(--easing-standard),
+                  background var(--duration-fast) var(--easing-standard),
+                  box-shadow var(--duration-fast) var(--easing-standard);
+      min-height: 48px; /* Fitts: >=44px */
+      outline: none;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--color-brown-100);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: var(--color-brown-500);
+      background: var(--color-white);
+      box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.12);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: var(--leading-relaxed);
+    }
+
+    .form-select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C07843' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: var(--space-10);
+    }
+
+    /* Date picker hint */
+    .form-hint {
+      font-size: var(--text-xs);
+      color: var(--color-brown-300);
+      margin-top: var(--space-1);
+    }
+
+    /* Privacy note */
+    .form-privacy {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .form-privacy__checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--color-brown-300);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .form-privacy__text {
+      font-size: var(--text-xs);
+      color: var(--color-brown-300);
+      line-height: var(--leading-relaxed);
+    }
+
+    .form-privacy__text a {
+      color: var(--color-brown-500);
+      text-decoration: none;
+    }
+
+    /* Success state (shown after submit — for mockup) */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-12);
+    }
+
+    .form-success__icon { font-size: 3rem; margin-bottom: var(--space-4); }
+    .form-success__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-700);
+      margin-bottom: var(--space-3);
+    }
+    .form-success__text {
+      color: var(--color-brown-300);
+      font-size: var(--text-base);
+    }
+
+    /* --- Social / transport --- */
+    .access-section {
+      padding-block: var(--space-16);
+      background: var(--color-brown-900);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+
+    .access-block__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-gold-300);
+      margin-bottom: var(--space-6);
+    }
+
+    .transport-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .transport-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      color: var(--color-cream-200);
+    }
+
+    .transport-item__badge {
+      background: var(--color-gold-500);
+      color: var(--color-brown-900);
+      font-weight: var(--weight-bold);
+      font-size: var(--text-xs);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      flex-shrink: 0;
+    }
+
+    .transport-item__text {
+      font-size: var(--text-sm);
+    }
+
+    .social-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      text-decoration: none;
+      color: var(--color-cream-200);
+      font-size: var(--text-sm);
+      transition: color var(--duration-fast) var(--easing-standard);
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .social-link:hover {
+      color: var(--color-gold-300);
+      border-color: rgba(212,164,76,0.3);
+      background: rgba(212,164,76,0.06);
+    }
+
+    .social-link__icon { font-size: 1.5rem; }
+
+    .social-link__handle {
+      font-size: var(--text-xs);
+      color: var(--color-brown-300);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .access-grid { grid-template-columns: 1fr; }
+      .subject-tabs { grid-template-columns: 1fr 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-panel { padding: var(--space-6); }
+      .page-hero__title { font-size: var(--text-4xl); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+          <span class="nav__logo-name">Au Pain Doré</span>
+          <span class="nav__logo-tagline">Boulangerie Artisanale</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Accueil</a></li>
+          <li><a href="produits.html" class="nav__link">Produits</a></li>
+          <li><a href="a-propos.html" class="nav__link">À propos</a></li>
+          <li><a href="contact.html" class="nav__link nav__link--active">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--gold">Nous trouver</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero__breadcrumb">
+        <a href="index.html">Accueil</a> · Contact
+      </p>
+      <h1 class="page-hero__title">Venez nous rendre visite</h1>
+      <p class="page-hero__subtitle">
+        Une question, une commande spéciale, ou juste envie de dire bonjour — nous sommes là, chaque matin dès 7h.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTACT ===== -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Left: info panel -->
+        <div class="contact-info">
+
+          <div class="contact-info-block">
+            <div class="contact-info-block__heading">
+              <span class="contact-info-block__icon">📍</span>
+              Adresse
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__label">Boutique</span>
+              <span class="contact-detail__value">12 rue Lepic<br>75018 Paris — Montmartre</span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__label">Téléphone</span>
+              <span class="contact-detail__value"><a href="tel:+33142541234">+33 1 42 54 12 34</a></span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__label">E-mail</span>
+              <span class="contact-detail__value"><a href="mailto:contact@aupaindore.fr">contact@aupaindore.fr</a></span>
+            </div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-block__heading">
+              <span class="contact-info-block__icon">⏰</span>
+              Horaires d'ouverture
+            </div>
+            <div class="open-now">Ouvert maintenant · Fermeture à 19h30</div>
+            <table class="hours-table">
+              <tr>
+                <td>Lundi</td>
+                <td>7h00 – 19h30</td>
+              </tr>
+              <tr>
+                <td>Mardi</td>
+                <td>7h00 – 19h30</td>
+              </tr>
+              <tr>
+                <td>Mercredi</td>
+                <td>7h00 – 19h30</td>
+              </tr>
+              <tr>
+                <td>Jeudi</td>
+                <td>7h00 – 19h30</td>
+              </tr>
+              <tr class="today">
+                <td>Vendredi (aujourd'hui)</td>
+                <td>7h00 – 19h30</td>
+              </tr>
+              <tr>
+                <td>Samedi</td>
+                <td>7h00 – 19h00</td>
+              </tr>
+              <tr>
+                <td>Dimanche</td>
+                <td>7h30 – 13h00</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="contact-info-block" style="padding:0; overflow:hidden;">
+            <div class="map-placeholder">
+              <div class="map-placeholder__icon">🗺️</div>
+              <div class="map-placeholder__label">Carte interactive</div>
+              <div class="map-placeholder__address">12 rue Lepic · Montmartre · Paris 18</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: contact form -->
+        <div class="contact-form-panel">
+          <h2 class="contact-form-panel__title">Envoyer un message</h2>
+          <p class="contact-form-panel__subtitle">Réponse sous 24h ouvrées — ou appelez-nous directement au 01 42 54 12 34.</p>
+
+          <!-- Subject selector (Progressive Disclosure) -->
+          <div class="subject-tabs">
+            <button class="subject-tab subject-tab--selected">
+              <span class="subject-tab__icon">💬</span>
+              <span class="subject-tab__label">Question générale</span>
+            </button>
+            <button class="subject-tab">
+              <span class="subject-tab__icon">🎂</span>
+              <span class="subject-tab__label">Commande spéciale</span>
+            </button>
+            <button class="subject-tab">
+              <span class="subject-tab__icon">🤝</span>
+              <span class="subject-tab__label">Partenariat</span>
+            </button>
+          </div>
+
+          <form novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label form-label--required" for="prenom">Prénom</label>
+                <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Marie" autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label class="form-label form-label--required" for="nom">Nom</label>
+                <input class="form-input" type="text" id="nom" name="nom" placeholder="Dupont" autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label form-label--required" for="email">Adresse e-mail</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="marie.dupont@email.com" autocomplete="email">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="telephone">Téléphone (optionnel)</label>
+              <input class="form-input" type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" autocomplete="tel">
+            </div>
+
+            <!-- Special order fields (Progressive Disclosure — shown when "Commande spéciale" selected) -->
+            <div id="special-order-fields" style="display:none;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label form-label--required" for="date-souhaitee">Date souhaitée</label>
+                  <input class="form-input" type="date" id="date-souhaitee" name="date-souhaitee">
+                  <span class="form-hint">Minimum 48h à l'avance</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label form-label--required" for="nb-personnes">Nombre de personnes</label>
+                  <select class="form-select" id="nb-personnes" name="nb-personnes">
+                    <option value="">Sélectionner…</option>
+                    <option>4 à 6 personnes</option>
+                    <option>8 à 12 personnes</option>
+                    <option>15 à 20 personnes</option>
+                    <option>20+ personnes</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label form-label--required" for="message">Message</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Bonjour, je souhaite…"></textarea>
+            </div>
+
+            <div class="form-privacy">
+              <input class="form-privacy__checkbox" type="checkbox" id="privacy" name="privacy">
+              <label class="form-privacy__text" for="privacy">
+                J'accepte que mes données soient utilisées pour traiter ma demande, conformément à notre
+                <a href="#">politique de confidentialité</a>. Aucune donnée n'est partagée avec des tiers.
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary" style="width:100%;">
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACCESS & SOCIAL ===== -->
+  <section class="access-section">
+    <div class="container">
+      <div class="access-grid">
+
+        <div>
+          <div class="access-block__title">Comment nous rejoindre</div>
+          <ul class="transport-list">
+            <li class="transport-item">
+              <span class="transport-item__badge">Métro</span>
+              <span class="transport-item__text">Abbesses — Ligne 12 (2 min à pied)</span>
+            </li>
+            <li class="transport-item">
+              <span class="transport-item__badge">Bus</span>
+              <span class="transport-item__text">Lignes 30, 54, Montmartrobus — arrêt Lepic-Abbesses</span>
+            </li>
+            <li class="transport-item">
+              <span class="transport-item__badge">Vélo</span>
+              <span class="transport-item__text">Station Vélib' n°18025 — rue Lepic (30m)</span>
+            </li>
+            <li class="transport-item">
+              <span class="transport-item__badge">Voiture</span>
+              <span class="transport-item__text">Parking Abbesses — 4 rue de la Vieuville (200m)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="access-block__title">Nous suivre</div>
+          <div class="social-list">
+            <a href="#" class="social-link">
+              <span class="social-link__icon">📸</span>
+              <div>
+                <div>Instagram</div>
+                <div class="social-link__handle">@aupaindore_paris</div>
+              </div>
+            </a>
+            <a href="#" class="social-link">
+              <span class="social-link__icon">📘</span>
+              <div>
+                <div>Facebook</div>
+                <div class="social-link__handle">Au Pain Doré — Boulangerie Artisanale</div>
+              </div>
+            </a>
+            <a href="#" class="social-link">
+              <span class="social-link__icon">⭐</span>
+              <div>
+                <div>Google Maps</div>
+                <div class="social-link__handle">Note 4,9/5 · 842 avis</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Au Pain Doré</div>
+          <p class="footer__brand-text">Boulangerie artisanale fondée en 1987 au cœur de Montmartre. Farines biologiques, levain naturel, cuisson au four à bois.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigation</div>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Accueil</a></li>
+            <li><a href="produits.html" class="footer__link">Produits</a></li>
+            <li><a href="a-propos.html" class="footer__link">À propos</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Nous trouver</div>
+          <ul class="footer__links">
+            <li><span class="footer__link">12 rue Lepic, 75018 Paris</span></li>
+            <li><a href="tel:+33142541234" class="footer__link">+33 1 42 54 12 34</a></li>
+            <li><a href="mailto:contact@aupaindore.fr" class="footer__link">contact@aupaindore.fr</a></li>
+            <li><span class="footer__link">Métro : Abbesses (ligne 12)</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Au Pain Doré · Tous droits réservés</span>
+        <span>Fait avec ♥ à Montmartre</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

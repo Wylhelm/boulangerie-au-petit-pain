@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Au Pain Doré · Boulangerie Artisanale</title>
+  <link rel="stylesheet" href="design-system.css">
+  <style>
+    /* ===== PAGE-SPECIFIC: À PROPOS ===== */
+
+    /* --- Page hero --- */
+    .page-hero {
+      position: relative;
+      min-height: 480px;
+      background: linear-gradient(160deg, var(--color-brown-700) 0%, var(--color-brown-900) 100%);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .page-hero__bg-pattern {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 50px,
+        rgba(212,164,76,0.04) 50px,
+        rgba(212,164,76,0.04) 52px
+      );
+      pointer-events: none;
+    }
+
+    .page-hero__content {
+      position: relative;
+      z-index: 1;
+      padding-block: var(--space-20);
+    }
+
+    .page-hero__breadcrumb {
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-5);
+    }
+
+    .page-hero__breadcrumb a {
+      text-decoration: none;
+      color: var(--color-gold-500);
+      opacity: 0.7;
+      transition: opacity var(--duration-fast) var(--easing-standard);
+    }
+
+    .page-hero__breadcrumb a:hover { opacity: 1; }
+
+    .page-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-white);
+      letter-spacing: var(--tracking-tight);
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-6);
+    }
+
+    .page-hero__title em {
+      font-style: italic;
+      color: var(--color-gold-300);
+    }
+
+    .page-hero__subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-brown-100);
+      line-height: var(--leading-relaxed);
+      max-width: 55ch;
+    }
+
+    /* --- Values strip --- */
+    .values-strip {
+      background: var(--color-gold-500);
+      padding-block: var(--space-5);
+    }
+
+    .values-strip__list {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-16);
+      flex-wrap: wrap;
+    }
+
+    .value-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      color: var(--color-brown-900);
+      font-weight: var(--weight-semibold);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+
+    .value-item__icon { font-size: 1.25rem; }
+
+    /* --- Timeline section --- */
+    .timeline-section {
+      padding-block: var(--space-24);
+    }
+
+    .timeline-section__header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-gold-100);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-12);
+      align-items: start;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-item__content {
+      grid-column: 1;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-item__spacer { grid-column: 2; }
+    .timeline-item:nth-child(odd) .timeline-item__empty { grid-column: 3; }
+
+    .timeline-item:nth-child(even) .timeline-item__empty { grid-column: 1; }
+    .timeline-item:nth-child(even) .timeline-item__spacer { grid-column: 2; }
+    .timeline-item:nth-child(even) .timeline-item__content {
+      grid-column: 3;
+      text-align: left;
+    }
+
+    .timeline-item__dot {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-full);
+      background: var(--color-brown-500);
+      border: 4px solid var(--color-cream-100);
+      box-shadow: 0 0 0 2px var(--color-gold-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-item__year {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-gold-500);
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+
+    .timeline-item__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-700);
+      margin-bottom: var(--space-2);
+    }
+
+    .timeline-item__text {
+      font-size: var(--text-sm);
+      color: var(--color-brown-300);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* --- Team section --- */
+    .team-section {
+      padding-block: var(--space-24);
+      background: var(--color-gold-100);
+    }
+
+    .team-section__header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+    }
+
+    .team-card {
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--duration-normal) var(--easing-standard),
+                  transform var(--duration-normal) var(--easing-standard);
+    }
+
+    .team-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .team-card__image {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .team-card__image--thomas {
+      background: linear-gradient(135deg, var(--color-brown-100) 0%, var(--color-brown-300) 100%);
+    }
+    .team-card__image--marie {
+      background: linear-gradient(135deg, var(--color-gold-100) 0%, var(--color-gold-300) 100%);
+    }
+    .team-card__image--julien {
+      background: linear-gradient(135deg, var(--color-cream-200) 0%, var(--color-brown-100) 100%);
+    }
+
+    .team-card__body {
+      padding: var(--space-6) var(--space-6) var(--space-8);
+      text-align: center;
+    }
+
+    .team-card__name {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-700);
+      margin-bottom: var(--space-1);
+    }
+
+    .team-card__role {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+      margin-bottom: var(--space-4);
+    }
+
+    .team-card__bio {
+      font-size: var(--text-sm);
+      color: var(--color-brown-300);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* --- Philosophy section --- */
+    .philosophy-section {
+      padding-block: var(--space-24);
+    }
+
+    .philosophy__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-20);
+      align-items: center;
+    }
+
+    .philosophy__image {
+      aspect-ratio: 1;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .philosophy__image-main {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, var(--color-brown-100) 0%, var(--color-brown-500) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+    }
+
+    .philosophy__image-main--photo {
+      display: block;
+      object-fit: cover;
+      background: none;
+    }
+
+    .philosophy__pillars {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+      margin-top: var(--space-8);
+    }
+
+    .pillar {
+      display: flex;
+      gap: var(--space-5);
+      align-items: flex-start;
+    }
+
+    .pillar__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--color-gold-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .pillar__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: var(--color-brown-700);
+      margin-bottom: var(--space-2);
+    }
+
+    .pillar__text {
+      font-size: var(--text-sm);
+      color: var(--color-brown-300);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* --- Awards section --- */
+    .awards-section {
+      padding-block: var(--space-16);
+      background: var(--color-brown-900);
+      text-align: center;
+    }
+
+    .awards-section__title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-gold-300);
+      margin-bottom: var(--space-12);
+    }
+
+    .awards-grid {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-12);
+      flex-wrap: wrap;
+    }
+
+    .award {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .award__icon {
+      font-size: 3rem;
+    }
+
+    .award__year {
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-gold-500);
+    }
+
+    .award__name {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-cream-200);
+      text-align: center;
+      max-width: 16ch;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; }
+      .philosophy__inner { grid-template-columns: 1fr; }
+      .philosophy__image { display: none; }
+      .timeline::before { left: 24px; }
+      .timeline-item { grid-template-columns: 48px 1fr; }
+      .timeline-item:nth-child(odd) .timeline-item__content,
+      .timeline-item:nth-child(even) .timeline-item__content {
+        grid-column: 2;
+        text-align: left;
+      }
+      .timeline-item__empty { display: none; }
+      .timeline-item:nth-child(odd) .timeline-item__spacer,
+      .timeline-item:nth-child(even) .timeline-item__spacer { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+          <span class="nav__logo-name">Au Pain Doré</span>
+          <span class="nav__logo-tagline">Boulangerie Artisanale</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="index.html" class="nav__link">Accueil</a></li>
+          <li><a href="produits.html" class="nav__link">Produits</a></li>
+          <li><a href="a-propos.html" class="nav__link nav__link--active">À propos</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--gold">Nous trouver</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="page-hero__bg-pattern"></div>
+    <div class="container">
+      <div class="page-hero__content">
+        <p class="page-hero__breadcrumb">
+          <a href="index.html">Accueil</a> · À propos
+        </p>
+        <h1 class="page-hero__title">
+          Trois générations<br>
+          de <em>passion</em> boulangère.
+        </h1>
+        <p class="page-hero__subtitle">
+          Depuis 1987, la famille Dumont perpétue l'art du pain artisanal dans ce même fournil de Montmartre — avec les mêmes valeurs, la même exigence, et la même flamme.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALUES STRIP ===== -->
+  <div class="values-strip">
+    <div class="container">
+      <div class="values-strip__list">
+        <div class="value-item">
+          <span class="value-item__icon">🌾</span>
+          <span>Agriculture biologique</span>
+        </div>
+        <div class="value-item">
+          <span class="value-item__icon">🤝</span>
+          <span>Filière locale & courte</span>
+        </div>
+        <div class="value-item">
+          <span class="value-item__icon">⏳</span>
+          <span>Fermentation lente</span>
+        </div>
+        <div class="value-item">
+          <span class="value-item__icon">❌</span>
+          <span>Zéro additif</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TIMELINE ===== -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="timeline-section__header">
+        <p class="section-label">Notre histoire</p>
+        <h2 class="section-title">38 ans de savoir-faire</h2>
+        <p class="section-subtitle" style="margin-inline: auto; text-align: center;">
+          Chaque étape de notre histoire a façonné la boulangerie que nous sommes aujourd'hui.
+        </p>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-item__content">
+            <div class="timeline-item__year">1987</div>
+            <div class="timeline-item__title">La fondation</div>
+            <p class="timeline-item__text">Pierre Dumont, compagnon boulanger, ouvre sa première boutique au 12 rue Lepic. Deux farines, un levain, et une vision : le pain honnête.</p>
+          </div>
+          <div class="timeline-item__spacer">
+            <div class="timeline-item__dot">🏠</div>
+          </div>
+          <div class="timeline-item__empty"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-item__empty"></div>
+          <div class="timeline-item__spacer">
+            <div class="timeline-item__dot">🔥</div>
+          </div>
+          <div class="timeline-item__content">
+            <div class="timeline-item__year">1995</div>
+            <div class="timeline-item__title">Le four à bois</div>
+            <p class="timeline-item__text">Installation d'un four à sole en pierre. Pierre renonce au four électrique : "Le bois donne une croûte irremplaçable."</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-item__content">
+            <div class="timeline-item__year">2003</div>
+            <div class="timeline-item__title">La deuxième génération</div>
+            <p class="timeline-item__text">Claire, fille de Pierre, rejoint l'atelier. Elle apporte la pâtisserie et les viennoiseries au programme, élargissant la gamme avec des recettes de saison.</p>
+          </div>
+          <div class="timeline-item__spacer">
+            <div class="timeline-item__dot">👩‍🍳</div>
+          </div>
+          <div class="timeline-item__empty"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-item__empty"></div>
+          <div class="timeline-item__spacer">
+            <div class="timeline-item__dot">🌾</div>
+          </div>
+          <div class="timeline-item__content">
+            <div class="timeline-item__year">2012</div>
+            <div class="timeline-item__title">Passage au bio</div>
+            <p class="timeline-item__text">Conversion totale aux farines biologiques. Partenariat exclusif avec le moulin Bertrand (Beauce), cultivant des variétés anciennes de blé.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-item__content">
+            <div class="timeline-item__year">2022</div>
+            <div class="timeline-item__title">Meilleure baguette de Paris</div>
+            <p class="timeline-item__text">Thomas, petit-fils de Pierre, remporte le concours de la meilleure baguette tradition de Paris. La fierté d'une famille, la récompense d'une vie.</p>
+          </div>
+          <div class="timeline-item__spacer">
+            <div class="timeline-item__dot">🏆</div>
+          </div>
+          <div class="timeline-item__empty"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section class="team-section">
+    <div class="container">
+      <div class="team-section__header">
+        <p class="section-label">Notre équipe</p>
+        <h2 class="section-title">Les artisans derrière chaque miche</h2>
+        <p class="section-subtitle" style="margin-inline: auto; text-align: center;">
+          Une équipe passionnée qui travaille dès 3h du matin pour que votre pain soit frais à l'ouverture.
+        </p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-card__image team-card__image--thomas">👨‍🍳</div>
+          <div class="team-card__body">
+            <div class="team-card__name">Thomas Dumont</div>
+            <div class="team-card__role">Maître boulanger · 3ème génération</div>
+            <p class="team-card__bio">
+              Formé à la Maison Kayser et chez Poilâne, Thomas revient reprendre le fournil familial en 2020. Meilleure baguette de Paris 2022. Sa passion : les fermentations longues et les farines de terroir.
+            </p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image team-card__image--marie">👩‍🍳</div>
+          <div class="team-card__body">
+            <div class="team-card__name">Marie Fontaine</div>
+            <div class="team-card__role">Cheffe pâtissière</div>
+            <p class="team-card__bio">
+              Ancienne de chez Ladurée, Marie crée nos pâtisseries de saison chaque semaine. Avec elle, les tartes, éclairs et entremets renouvellent l'ardoise selon les arrivages du marché.
+            </p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__image team-card__image--julien">🧑‍🍳</div>
+          <div class="team-card__body">
+            <div class="team-card__name">Julien Moreau</div>
+            <div class="team-card__role">Boulanger · Viennoiseries</div>
+            <p class="team-card__bio">
+              Spécialiste du feuilletage, Julien est l'artisan de nos croissants et pains au chocolat depuis 8 ans. Il maîtrise le tourage à la main — 27 couches, chaque nuit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHILOSOPHY ===== -->
+  <section class="philosophy-section">
+    <div class="container">
+      <div class="philosophy__inner">
+        <div class="philosophy__image">
+          <img src="../src/assets/hero-pain-campagne.webp" alt="Pain de campagne au levain — notre philosophie artisanale" class="philosophy__image-main philosophy__image-main--photo" loading="lazy">
+        </div>
+        <div>
+          <p class="section-label">Notre philosophie</p>
+          <h2 class="section-title">Le respect de chaque ingrédient</h2>
+          <div class="philosophy__pillars">
+            <div class="pillar">
+              <div class="pillar__icon">🌱</div>
+              <div>
+                <div class="pillar__title">Ingrédients biologiques</div>
+                <p class="pillar__text">Farines Label Rouge issues de blés anciens, beurre AOP Charentes-Poitou, œufs de poules élevées en plein air — nous sélectionnons chaque ingrédient avec soin.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__icon">⏳</div>
+              <div>
+                <div class="pillar__title">Fermentation lente</div>
+                <p class="pillar__text">Nos pains fermentent 18 à 24 heures au réfrigérateur. Cette lenteur développe les arômes, améliore la digestibilité, et donne cette mie alvéolée caractéristique.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__icon">🔥</div>
+              <div>
+                <div class="pillar__title">Cuisson au four à bois</div>
+                <p class="pillar__text">Notre four en pierre chauffé au bois depuis 1995 distribue une chaleur homogène et confère à nos croûtes cette teinte dorée et ce craquant incomparable.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__icon">🤲</div>
+              <div>
+                <div class="pillar__title">Façonnage à la main</div>
+                <p class="pillar__text">Chaque baguette, chaque miche, chaque pain spécial est façonné à la main. Aucune machine ne remplacera la sensibilité des mains d'un boulanger expérimenté.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AWARDS ===== -->
+  <section class="awards-section">
+    <div class="container">
+      <h2 class="awards-section__title">Reconnaissances & distinctions</h2>
+      <div class="awards-grid">
+        <div class="award">
+          <div class="award__icon">🏆</div>
+          <div class="award__year">2022</div>
+          <div class="award__name">Meilleure Baguette de Paris</div>
+        </div>
+        <div class="award">
+          <div class="award__icon">⭐</div>
+          <div class="award__year">2021</div>
+          <div class="award__name">Guide Lebey — 3 étoiles</div>
+        </div>
+        <div class="award">
+          <div class="award__icon">🌿</div>
+          <div class="award__year">2019</div>
+          <div class="award__name">Label Bio Agriculture France</div>
+        </div>
+        <div class="award">
+          <div class="award__icon">📰</div>
+          <div class="award__year">2018</div>
+          <div class="award__name">Le Figaro — Top 10 boulangeries parisiennes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Au Pain Doré</div>
+          <p class="footer__brand-text">Boulangerie artisanale fondée en 1987 au cœur de Montmartre. Farines biologiques, levain naturel, cuisson au four à bois.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigation</div>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Accueil</a></li>
+            <li><a href="produits.html" class="footer__link">Produits</a></li>
+            <li><a href="a-propos.html" class="footer__link">À propos</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Nous trouver</div>
+          <ul class="footer__links">
+            <li><span class="footer__link">12 rue Lepic, 75018 Paris</span></li>
+            <li><a href="tel:+33142541234" class="footer__link">+33 1 42 54 12 34</a></li>
+            <li><a href="mailto:contact@aupaindore.fr" class="footer__link">contact@aupaindore.fr</a></li>
+            <li><span class="footer__link">Métro : Abbesses (ligne 12)</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Au Pain Doré · Tous droits réservés</span>
+        <span>Fait avec ♥ à Montmartre</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
