@@ -1,4 +1,10 @@
 import './Products.css';
+import imgBaguette from '../assets/baguette.jpg';
+import imgPainCampagne from '../assets/pain-campagne.jpg';
+import imgCroissant from '../assets/croissant.jpg';
+import imgPainChocolat from '../assets/pain-chocolat.jpg';
+import imgBrioche from '../assets/brioche.jpg';
+import imgTarte from '../assets/tarte.jpg';
 
 interface Product {
   id: string;
@@ -12,7 +18,7 @@ interface Product {
 const PRODUCTS: Product[] = [
   {
     id: 'baguette',
-    image: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc7c?w=600&h=400&fit=crop&auto=format&q=80',
+    image: imgBaguette,
     imageAlt: 'Baguettes tradition fraîchement cuites',
     name: 'Baguette Tradition',
     description: 'Notre baguette phare, croustillante dehors et moelleuse dedans. Fabriquée selon les méthodes traditionnelles françaises.',
@@ -20,7 +26,7 @@ const PRODUCTS: Product[] = [
   },
   {
     id: 'pain-campagne',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop&auto=format&q=80',
+    image: imgPainCampagne,
     imageAlt: 'Pain de campagne au levain naturel',
     name: 'Pain de Campagne',
     description: 'Un pain rustique au levain naturel, à la croûte dorée et à la mie aérée avec des notes légèrement acidulées.',
@@ -28,7 +34,7 @@ const PRODUCTS: Product[] = [
   },
   {
     id: 'croissant',
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop&auto=format&q=80',
+    image: imgCroissant,
     imageAlt: 'Croissants au beurre AOP dorés',
     name: 'Croissant au Beurre',
     description: 'Feuilletage délicat, beurre AOP de qualité, dorure parfaite. Le croissant comme vous l\'aimez, chaque matin.',
@@ -36,21 +42,21 @@ const PRODUCTS: Product[] = [
   },
   {
     id: 'pain-chocolat',
-    image: 'https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&h=400&fit=crop&auto=format&q=80',
+    image: imgPainChocolat,
     imageAlt: 'Pains au chocolat feuilletés',
     name: 'Pain au Chocolat',
     description: 'Deux rangées de chocolat noir fondu enveloppées dans une pâte feuilletée beurrée à souhait.',
   },
   {
     id: 'brioche',
-    image: 'https://images.unsplash.com/photo-1568254183919-78a4f43a2877?w=600&h=400&fit=crop&auto=format&q=80',
+    image: imgBrioche,
     imageAlt: 'Brioche maison filante et dorée',
     name: 'Brioche Maison',
     description: 'Filante, dorée, parfumée à la fleur d\'oranger. Notre brioche est le fruit de 24h de pousse lente pour un résultat incomparable.',
   },
   {
     id: 'tarte',
-    image: 'https://images.unsplash.com/photo-1488477181375-a73ba7093dc2?w=600&h=400&fit=crop&auto=format&q=80',
+    image: imgTarte,
     imageAlt: 'Tarte aux fruits de saison',
     name: 'Tartes & Viennoiseries',
     description: 'Une sélection de tartes du jour aux fruits de saison et de viennoiseries variées pour ravir toutes les envies.',

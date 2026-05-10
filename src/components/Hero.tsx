@@ -1,4 +1,7 @@
 import './Hero.css';
+import imgPainCampagne from '../assets/pain-campagne.jpg';
+import imgCroissant from '../assets/croissant.jpg';
+import imgBaguette from '../assets/baguette.jpg';
 
 export default function Hero() {
   return (
@@ -35,7 +38,7 @@ export default function Hero() {
           <div className="hero__bread-grid">
             <div className="hero__bread-card hero__bread-card--lg">
               <img
-                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=420&fit=crop&auto=format&q=80"
+                src={imgPainCampagne}
                 alt="Pain de campagne au levain"
                 className="hero__bread-img"
                 loading="eager"
@@ -44,7 +47,7 @@ export default function Hero() {
             </div>
             <div className="hero__bread-card">
               <img
-                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=320&fit=crop&auto=format&q=80"
+                src={imgCroissant}
                 alt="Croissant au beurre"
                 className="hero__bread-img"
                 loading="eager"
@@ -53,7 +56,7 @@ export default function Hero() {
             </div>
             <div className="hero__bread-card">
               <img
-                src="https://images.unsplash.com/photo-1549931319-a545dcf3bc7c?w=400&h=320&fit=crop&auto=format&q=80"
+                src={imgBaguette}
                 alt="Baguette tradition"
                 className="hero__bread-img"
                 loading="eager"
